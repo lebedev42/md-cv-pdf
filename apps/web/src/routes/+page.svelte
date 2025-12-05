@@ -31,6 +31,7 @@
     RotateCcw,
     Clock,
     FolderOpen,
+    Github,
   } from 'lucide-svelte';
 
   let selectedFile = $state<File | null>(null);
@@ -422,8 +423,19 @@
     </div>
 
     <!-- Footer -->
-    <p class="text-center text-sm text-muted-foreground mt-8 opacity-80">
-      Upload a .md file with your CV to generate a PDF version
-    </p>
+    <div class="text-center mt-8 space-y-2">
+      <p class="text-sm text-muted-foreground opacity-80">
+        Upload a .md file with your CV to generate a PDF version
+      </p>
+      <a
+        href="https://github.com/lebedev42/md-cv-pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+      >
+        <Github class="w-4 h-4" />
+        <span>View on GitHub</span>
+      </a>
+    </div>
   </div>
 </main>

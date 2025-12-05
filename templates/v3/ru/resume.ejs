@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= data.name %> - <%= data.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="resume.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="profile">
+          <div class="avatar">
+            <span><%= data.name.split(' ').map(n => n[0]).join('') %></span>
+          </div>
+          <h1><%= data.name %></h1>
+          <h2><%= data.title %></h2>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Контакты</h3>
+          <ul class="contact-list">
+            <li>
+              <span class="icon">✉</span>
+              <span><%= data.email %></span>
+            </li>
+            <li>
+              <span class="icon">✈</span>
+              <span><%= data.telegram %></span>
+            </li>
+            <li>
+              <span class="icon">◎</span>
+              <span><%= data.location || 'Удалённо' %></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Навыки</h3>
+          <div class="skills">
+            <div class="skill-group">
+              <h4>Frontend</h4>
+              <p><%= data.skills.frontend %></p>
+            </div>
+            <div class="skill-group">
+              <h4>Backend</h4>
+              <p><%= data.skills.backend %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Языки</h3>
+          <ul class="languages">
+            <% if (data.languages.russian) { %>
+            <li>
+              <span>Русский</span>
+              <span class="level"><%= data.languages.russian.replace(/Русский\s*[-—]\s*/i, '').split(' ')[0] || 'родной' %></span>
+            </li>
+            <% } %>
+            <% if (data.languages.english) { %>
+            <li>
+              <span>Английский</span>
+              <span class="level"><%= data.languages.english.replace(/Английский\s*[-—]\s*/i, '').split(' ')[0] %></span>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Образование</h3>
+          <p class="education">
+            <%= data.education.university %><br />
+            <span class="faculty"><%= data.education.faculty %></span><br />
+            <span class="period"><%= data.education.period %></span>
+          </p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <section class="section">
+          <h3>
+            <span class="section-icon">◆</span>
+            Опыт работы
+          </h3>
+          <div class="timeline">
+            <% data.jobs.forEach(function(job, index) { %>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="job-header">
+                  <h4><%= job.title %></h4>
+                  <span class="company"><%= job.company %></span>
+                </div>
+                <div class="job-meta">
+                  <span class="period"><%= job.period %></span>
+                  <% if (job.duration) { %>
+                  <span class="duration"><%= job.duration %></span>
+                  <% } %>
+                </div>
+                <p class="job-description"><%= job.description %></p>
+                <ul class="achievements">
+                  <% job.achievements.forEach(function(achievement) { %>
+                  <li><%- achievement %></li>
+                  <% }); %>
+                </ul>
+                <div class="tech-tags">
+                  <% job.technologies.split(',').forEach(function(tech) { %>
+                  <span class="tag"><%= tech.trim() %></span>
+                  <% }); %>
+                </div>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+

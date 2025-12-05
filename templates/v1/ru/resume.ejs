@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= data.name %> - <%= data.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="resume.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header-left">
+          <div class="experience-badge">
+            <%= experience %> лет<br /><span>опыта</span>
+          </div>
+          <div class="links">
+            <a
+              href="https://t.me/<%= data.telegram.replace('@', '') %>"
+              target="_blank"
+              >Telegram</a
+            >
+            <a href="mailto:<%= data.email %>" class="email"
+              ><%= data.email %></a
+            >
+          </div>
+        </div>
+        <div class="header-center">
+          <h1><%= data.name %></h1>
+          <h2>
+            <%= data.title %>
+          </h2>
+          <p class="subtitle">Full-stack разработчик</p>
+        </div>
+        <div class="header-right">
+          <div class="location"><%= data.location || 'Удалённо' %><br />(GMT+3)</div>
+        </div>
+      </header>
+      <section class="section">
+        <h3 class="section-title">ТЕХНИЧЕСКИЕ НАВЫКИ</h3>
+        <p class="skills-text">
+          <strong>Frontend:</strong> <%= data.skills.frontend %>
+        </p>
+        <p class="skills-text">
+          <strong>Backend:</strong> <%= data.skills.backend %>
+        </p>
+      </section>
+      <section class="section">
+        <h3 class="section-title">ОПЫТ РАБОТЫ</h3>
+        <% data.jobs.forEach(function(job, index) { %>
+        <div class="job">
+          <div class="job-header">
+            <strong><%= job.title %></strong> (<%= job.period %><% if
+            (job.duration) { %> | <%= job.duration %><% } %>) |
+            <span class="company-link"><%= job.company %></span>
+          </div>
+          <p class="job-description"><em><%= job.description %></em></p>
+          <ul class="job-details">
+            <% job.achievements.forEach(function(achievement) { %>
+            <li><%- achievement %></li>
+            <% }); %>
+          </ul>
+          <p class="technologies">
+            <em>Технологии:</em> <%= job.technologies %>
+          </p>
+        </div>
+        <% }); %>
+      </section>
+      <section class="section">
+        <h3 class="section-title">ОБРАЗОВАНИЕ</h3>
+        <p class="education">
+          <strong><%= data.education.period %></strong><br />
+          <%= data.education.university %><br />
+          <%= data.education.faculty %>
+        </p>
+      </section>
+      <section class="section">
+        <h3 class="section-title">ЯЗЫКИ</h3>
+        <p class="languages">
+          <% if (data.languages.russian) { %>
+          Русский — <%= data.languages.russian.replace(/Русский\s*[-—]\s*/i, '').split(' ')[0] || 'родной' %>
+          <% } %>
+          <% if (data.languages.english) { %>
+          <br />Английский — <%= data.languages.english.replace(/Английский\s*[-—]\s*/i, '').split(' ')[0] %>
+          <% } %>
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
+

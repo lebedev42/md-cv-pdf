@@ -1,0 +1,24 @@
+{
+  "name": "@cv/cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "md-cv-pdf": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@cv/resume-parser": "workspace:*",
+    "@inquirer/prompts": "^7.2.0",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@cv/tsconfig": "workspace:*",
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2"
+  }
+}

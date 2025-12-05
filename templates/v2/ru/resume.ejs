@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= data.name %> - <%= data.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="resume.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1><%= data.name %></h1>
+        <h2><%= data.title %></h2>
+        <div class="contact-line">
+          <span><%= data.email %></span>
+          <span class="separator">•</span>
+          <span><%= data.telegram %></span>
+          <span class="separator">•</span>
+          <span><%= data.location || 'Удалённо' %></span>
+        </div>
+      </header>
+
+      <section class="section">
+        <h3>О себе</h3>
+        <p class="summary">
+          Опытный <%= data.title %> с <%= experience %> годами экспертизы в разработке 
+          масштабируемых приложений. Владею современными веб-технологиями с фокусом 
+          на качество кода и пользовательский опыт.
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>Технические навыки</h3>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <strong>Frontend</strong>
+            <p><%= data.skills.frontend %></p>
+          </div>
+          <div class="skill-category">
+            <strong>Backend</strong>
+            <p><%= data.skills.backend %></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Опыт работы</h3>
+        <% data.jobs.forEach(function(job, index) { %>
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title-company">
+              <strong><%= job.title %></strong>
+              <span class="company"><%= job.company %></span>
+            </div>
+            <div class="job-period"><%= job.period %></div>
+          </div>
+          <p class="job-description"><%= job.description %></p>
+          <ul class="achievements">
+            <% job.achievements.forEach(function(achievement) { %>
+            <li><%- achievement %></li>
+            <% }); %>
+          </ul>
+          <p class="tech-stack"><%= job.technologies %></p>
+        </div>
+        <% }); %>
+      </section>
+
+      <div class="two-columns">
+        <section class="section">
+          <h3>Образование</h3>
+          <p class="education">
+            <strong><%= data.education.university %></strong><br />
+            <%= data.education.faculty %><br />
+            <span class="period"><%= data.education.period %></span>
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>Языки</h3>
+          <ul class="languages-list">
+            <% if (data.languages.russian) { %>
+            <li>Русский — <%= data.languages.russian.replace(/Русский\s*[-—]\s*/i, '').split(' ')[0] || 'родной' %></li>
+            <% } %>
+            <% if (data.languages.english) { %>
+            <li>Английский — <%= data.languages.english.replace(/Английский\s*[-—]\s*/i, '').split(' ')[0] %></li>
+            <% } %>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
+

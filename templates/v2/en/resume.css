@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: #2c2c2c;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 15mm 20mm;
+  background: white;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.header h1 {
+  font-size: 32pt;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #1a1a1a;
+}
+
+.header h2 {
+  font-size: 14pt;
+  font-weight: 400;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.contact-line {
+  font-family: 'Inter', sans-serif;
+  font-size: 9pt;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.separator {
+  color: #ccc;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  font-size: 12pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
+}
+
+.summary {
+  text-align: justify;
+  font-style: italic;
+  color: #444;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.skill-category strong {
+  display: block;
+  font-size: 10pt;
+  margin-bottom: 4px;
+  color: #1a1a1a;
+}
+
+.skill-category p {
+  font-family: 'Inter', sans-serif;
+  font-size: 8.5pt;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Jobs */
+.job {
+  margin-bottom: 18px;
+  page-break-inside: avoid;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.job-title-company strong {
+  font-size: 11pt;
+  color: #1a1a1a;
+}
+
+.company {
+  font-style: italic;
+  color: #666;
+  margin-left: 8px;
+}
+
+.job-period {
+  font-family: 'Inter', sans-serif;
+  font-size: 9pt;
+  color: #888;
+}
+
+.job-description {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 8px;
+  font-size: 9.5pt;
+}
+
+.achievements {
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+.achievements li {
+  margin-bottom: 4px;
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+
+.tech-stack {
+  font-family: 'Inter', sans-serif;
+  font-size: 8pt;
+  color: #777;
+  font-style: italic;
+}
+
+/* Two columns */
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Education */
+.education {
+  line-height: 1.6;
+}
+
+.education .period {
+  font-family: 'Inter', sans-serif;
+  font-size: 9pt;
+  color: #888;
+}
+
+/* Languages */
+.languages-list {
+  list-style: none;
+}
+
+.languages-list li {
+  margin-bottom: 4px;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    font-size: 9.5pt;
+  }
+
+  .container {
+    padding: 12mm 15mm;
+    max-width: 100%;
+  }
+
+  .header {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+
+  .header h1 {
+    font-size: 26pt;
+  }
+
+  .section {
+    margin-bottom: 14px;
+  }
+
+  .job {
+    margin-bottom: 12px;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+

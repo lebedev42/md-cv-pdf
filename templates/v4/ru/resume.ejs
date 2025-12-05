@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= data.name %> - <%= data.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="resume.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="name-title">
+          <h1><%= data.name %></h1>
+          <span class="divider">|</span>
+          <h2><%= data.title %></h2>
+        </div>
+        <div class="contact">
+          <%= data.email %> · <%= data.telegram %> · <%= data.location || 'Удалённо' %>
+        </div>
+      </header>
+
+      <section>
+        <h3>Навыки</h3>
+        <div class="skills-row">
+          <span><strong>Frontend:</strong> <%= data.skills.frontend %></span>
+          <span><strong>Backend:</strong> <%= data.skills.backend %></span>
+        </div>
+      </section>
+
+      <section>
+        <h3>Опыт работы</h3>
+        <% data.jobs.forEach(function(job, index) { %>
+        <div class="job">
+          <div class="job-line">
+            <span class="job-title"><%= job.title %></span>
+            <span class="job-company"><%= job.company %></span>
+            <span class="job-period"><%= job.period %></span>
+          </div>
+          <ul>
+            <% job.achievements.slice(0, 3).forEach(function(achievement) { %>
+            <li><%- achievement %></li>
+            <% }); %>
+          </ul>
+          <div class="tech"><%= job.technologies %></div>
+        </div>
+        <% }); %>
+      </section>
+
+      <div class="footer-sections">
+        <section class="small">
+          <h3>Образование</h3>
+          <p><%= data.education.university %>, <%= data.education.faculty %> (<%= data.education.period %>)</p>
+        </section>
+        <section class="small">
+          <h3>Языки</h3>
+          <p>
+            <% if (data.languages.russian) { %>Русский: <%= data.languages.russian.replace(/Русский\s*[-—]\s*/i, '').split(' ')[0] || 'родной' %><% } %>
+            <% if (data.languages.english) { %> · Английский: <%= data.languages.english.replace(/Английский\s*[-—]\s*/i, '').split(' ')[0] %><% } %>
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
+

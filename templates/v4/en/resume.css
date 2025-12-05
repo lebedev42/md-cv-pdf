@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 8pt;
+  line-height: 1.4;
+  color: #111;
+  background: #fff;
+}
+
+.container {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 10mm 12mm;
+}
+
+/* Header */
+header {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid #111;
+}
+
+.name-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+header h1 {
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+header h2 {
+  font-size: 10pt;
+  font-weight: 400;
+  color: #444;
+}
+
+.divider {
+  color: #999;
+  font-weight: 300;
+}
+
+.contact {
+  font-size: 7.5pt;
+  color: #555;
+}
+
+/* Sections */
+section {
+  margin-bottom: 10px;
+}
+
+section h3 {
+  font-size: 8pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #111;
+  margin-bottom: 6px;
+  background: #f5f5f5;
+  padding: 3px 6px;
+  display: inline-block;
+}
+
+/* Skills */
+.skills-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 7.5pt;
+  line-height: 1.5;
+}
+
+.skills-row strong {
+  font-weight: 600;
+}
+
+/* Jobs */
+.job {
+  margin-bottom: 10px;
+  page-break-inside: avoid;
+}
+
+.job-line {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.job-title {
+  font-weight: 600;
+  font-size: 8.5pt;
+}
+
+.job-company {
+  color: #666;
+  font-size: 8pt;
+}
+
+.job-company::before {
+  content: '@ ';
+  color: #999;
+}
+
+.job-period {
+  color: #888;
+  font-size: 7.5pt;
+  margin-left: auto;
+}
+
+.job ul {
+  margin-left: 14px;
+  margin-bottom: 4px;
+}
+
+.job li {
+  font-size: 7.5pt;
+  margin-bottom: 2px;
+  line-height: 1.35;
+}
+
+.tech {
+  font-size: 7pt;
+  color: #666;
+  font-style: italic;
+}
+
+/* Footer sections */
+.footer-sections {
+  display: flex;
+  gap: 30px;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  margin-top: 8px;
+}
+
+.footer-sections section {
+  margin-bottom: 0;
+}
+
+.footer-sections h3 {
+  font-size: 7pt;
+  padding: 2px 4px;
+}
+
+.footer-sections p {
+  font-size: 7.5pt;
+  color: #444;
+}
+
+/* Print */
+@media print {
+  .container {
+    padding: 8mm 10mm;
+    max-width: 100%;
+  }
+
+  section h3 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+

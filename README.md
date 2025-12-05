@@ -404,6 +404,7 @@ data.languages
 md-cv-pdf/
 ├── apps/
 │   ├── api/              # NestJS REST API
+|   |   └── output/       # Generated PDFs
 │   ├── cli/              # Commander CLI
 │   └── web/              # SvelteKit Web UI
 ├── packages/
@@ -415,7 +416,6 @@ md-cv-pdf/
 │   ├── v3/en/, v3/ru/    # Modern template
 │   └── v4/en/, v4/ru/    # Compact template
 ├── scripts/              # Build scripts
-└── output/               # Generated PDFs
 ```
 
 ---

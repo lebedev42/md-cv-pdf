@@ -4,6 +4,16 @@
   "private": true,
   "type": "module",
   "description": "Markdown CV to PDF Template Converter",
+  "author": "lebedev42",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lebedev42/md-cv-pdf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lebedev42/md-cv-pdf/issues"
+  },
+  "homepage": "https://github.com/lebedev42/md-cv-pdf#readme",
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",

@@ -84,7 +84,7 @@ Each template is available in **English** (`en`) and **Russian** (`ru`).
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/md-cv-pdf.git
+git clone https://github.com/lebedev42/md-cv-pdf.git
 cd md-cv-pdf
 
 # Install dependencies
@@ -497,7 +497,7 @@ Contributions are welcome! Here's how you can help:
 ### Development Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/md-cv-pdf.git
+git clone https://github.com/lebedev42/md-cv-pdf.git
 cd md-cv-pdf
 pnpm install
 pnpm --filter @cv/resume-parser exec playwright install chromium
